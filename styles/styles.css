@@ -1,0 +1,404 @@
+/*selector (tag del htlm) + propiedad (atributo ej color)+ valor (ej. q color)
+
+selector{
+(DENTRO DEL SELECTOR)
+propiedad: valor
+}
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+
+body{    /** uso grid para todas las areas del body*/
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    background-color: #ddc18f;
+}
+header{
+
+    grid-area: header;
+    position: sticky;
+    top: 0;
+    background-color: #588349;
+    z-index: 100;
+    width: 100%;
+    padding: 5px 0;
+}
+main{
+    grid-area: main;
+    grid-row: 2 / 3;
+    margin-top: 0;
+    padding: 0;
+}
+/**-----------------------------------------------------------------------*/
+footer{
+    grid-area: footer;
+    background-color: #588349;
+    padding: 0;
+}
+
+.contenedor-redes {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: space-between;
+}
+
+.icono-redes {
+    width: 50px;
+    height: auto;
+}
+
+.texto-derechos{
+    text-align: center;
+}
+/**------------------------------------------------------------------------------*/
+.whatsapp{
+    position: fixed;
+    bottom: 60px;
+    right: 50px;
+    width: auto;
+    height: 9vh;
+}
+
+/*------------------------------- barra de menu*/
+
+.header-contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.menu-contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.menu-principal {
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+    z-index: 10
+    
+}
+.menu-principal ul{
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 5px 0;
+    flex-wrap: wrap;
+    justify-content: center; 
+    font-size: 20px;
+}
+.menu-principal li a {
+    display: inline-block;
+    background-color: #cea061;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+.menu-principal li a:hover {
+    background-color: #a06c36;
+    transform: translateY(-2px);
+}
+/*---------------------------------------------------------*/
+
+.titulo{
+    flex: 1;
+    text-align: right;
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(30px, 5vw, 60px);
+    color: #cea061;
+    margin: 0 20px;
+}
+
+.logo{
+    height: auto;
+    max-height: 150px;
+    width: auto;
+    object-fit: contain;
+    margin-left: 40px;
+    padding: 10 40px;
+}
+
+
+
+/**grids para cursos*/
+.contenedor-cursos{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px
+}
+.borde2{ /**imagenes de los cursos-------------------------------------------*/
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px;
+}
+.imagen-curso{
+    width: 90%;
+    height: auto;
+    box-shadow: 10px 10px 5px #a06c36
+}
+
+
+
+/**--------------------------------------------------------------------------------------*/
+
+
+
+
+/*cambio tamaño subtitulo de todas las paginas*/
+.subtitulos{
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-size: 50px;
+    font-weight: 500;
+    font-style: normal;
+    text-align: center;
+}
+
+.parrafotexto{  /*parrafo de "quienes somos*/
+    max-width: 1000px;
+    width: 100%;
+    margin: 40px auto;
+    padding: 25px 30px;
+    background-color: #fef9f5;  /*fondo del parrafo*/
+    color: #333;
+    font-family: "Playfair Display", sans-serif;
+    font-size: 20px;
+    line-height: 1.8;
+    text-align: justify;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+
+
+
+.margen-imagen{  /*imagen para "quienes somos de fondo*/
+    position: relative;
+    z-index: 1;
+    background-image: url("../imagenes/cajas.png"); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 50px 20px;
+    min-height: 100vh; /* para que ocupe toda la altura visible */
+    box-sizing: border-box;
+}
+.margen-imagen::before {   /*pseudoelemento para la capa*/
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.30); 
+    z-index: -1;
+}
+
+
+/*boton de incripcion en formulario*--------------------------------------------------------------*/
+.contenedor-boton{
+    display: flex;
+    justify-content: center;
+    margin: 40px 0; /* ESPACIO */
+}
+.boton-inscripcion {
+    display: inline-block;
+    background-color: #588349;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    border: none;
+}
+.boton-inscripcion:hover {
+    background-color: #446d37;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/*VIDEO EN EL INDEX*--------------------------------------------------------------------------------*/
+.margen-main{
+
+    position: relative;
+    width: 100%;
+     height: 100vh; /* Esto hace que el video ocupe toda la pantalla */
+    overflow: hidden; /* Para asegurarse de que nada se salga del contenedor */
+}
+
+.margen-main video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Hace que el video cubra todo el area del margen-main */
+    z-index: -1; /* si hay contenido el video esta atras */
+}
+
+.margen-main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Color oscuro con transparencia para el sombreado */
+    z-index: -1; /* la sombra esta arriba del video pero abajo del texto */
+}
+
+/* AJUSTAR TAMAÑO IMAGEN----------------------------------------------*/
+
+.seccion-tienda{    /*esto controla toda la seccion tienda*/
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* se hace chica si se achica la pantalla */
+    gap: 180px;
+    padding: 40px;
+    
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 20vw;
+    padding: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  /*CAMBIAR fuente*/
+}
+
+.card__titulo{
+    font-size: 2rem;
+}
+
+.card__imagen{
+    box-shadow: 10px 10px 5px #a06c36;  
+    width: 90%;  /* NO SE DESBORDA LA IMAGEN*/
+    height: auto;
+    
+}
+
+.card__texto{
+    padding-top: 10px;
+}
+
+.card__boton{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; /*cambiar fuente*/
+    font-size: large;
+    padding: 10px 20px;
+    background-color: #cea061;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; /*se muestra la manito cuando pasas por el boton*/
+    transition: background-color 0.3s ease;
+}
+
+.card__boton:hover {
+    background-color: #a06c36;
+}
+
+.card__boton--agotado {
+    font-family: 'Lucida Sans', sans-serif;
+    font-size: large;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: gray;
+    cursor: not-allowed;  /*no se puede hacer nada si pasa por el cursor*/
+    opacity: 0.6;
+    pointer-events: none; /* no se puede hacer click si esta agotado*/
+}
+
+@media screen and (max-width: 768px) {  /*reseponsive en index*/
+
+    .pagina-index header {
+        padding: 5px 10px;
+    }
+    .pagina-index .logo {
+        max-height: 80px;
+        margin-left: 0;
+    }
+    .pagina-index .titulo {
+        font-size: 26px;
+        margin: 5px 0;
+        text-align: center;
+    }
+    .pagina-index footer {
+        padding: 10px;
+        text-align: center;
+    }
+    .pagina-index .texto-derechos {
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+    .pagina-index .icono-redes {
+        width: 30px;
+        margin: 0 5px;
+    }
+    .pagina-index .whatsapp {
+        height: 6vh;
+        right: 10px;
+        bottom: 10px;
+    }
+
+    /* responsive tienda*/
+    .pagina-index .seccion-tienda {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px; /* espacio*/
+        padding: 20px;
+    }
+    .pagina-index .card {
+        width: 80vw;
+        padding: 20px;
+    }
+    .pagina-index .card__titulo {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .pagina-index .card__imagen {
+        width: 100%;
+    }
+    .pagina-index .card__boton,   /*selecciono 2 clases al mismo tiempo p/ q sean iguales*/
+    .pagina-index .card__boton--agotado {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+    }
+}
+
+
+
+
+
+
+
